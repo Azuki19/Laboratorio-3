@@ -32,8 +32,8 @@ class AppContainer extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-            <h1>PROFILES</h1>
-            <h2>companyyyyyyyyyy</h2>`;
+            <h1>PROFILESS</h1>
+            `;
 
 			this.profiles.forEach((profile) => {
 				this.shadowRoot?.appendChild(profile);

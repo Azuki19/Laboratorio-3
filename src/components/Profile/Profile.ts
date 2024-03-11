@@ -74,7 +74,9 @@ class Profile extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" href="./src/components/Profile/Profile.css">
+
+			<link rel="stylesheet" href="./src/components/Profile/Profile.css" />
+
           <section>
 
           <img src="${this.image}"></img>
