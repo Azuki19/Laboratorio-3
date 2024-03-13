@@ -1,3 +1,5 @@
+import styles from './Profile.css';
+
 export enum Attribute {
 	'uid' = 'uid',
 	'name' = 'name',
@@ -6,7 +8,7 @@ export enum Attribute {
 	'gender' = 'gender',
 	'area' = 'area',
 	'position' = 'position',
-	'timeInCompany' = 'timeInCompany',
+	'timeInCompany' = 'timeincompany',
 	'experience' = 'experience',
 }
 
@@ -18,7 +20,7 @@ class Profile extends HTMLElement {
 	gender?: string;
 	area?: string;
 	position?: string;
-	timeInCompany?: number;
+	timeincompany?: number;
 	experience?: number;
 
 	static get observedAttributes() {
@@ -30,7 +32,7 @@ class Profile extends HTMLElement {
 			gender: null,
 			area: null,
 			position: null,
-			timeInCompany: null,
+			timeincompany: null,
 			experience: null,
 		};
 		return Object.keys(attrs);
@@ -47,7 +49,7 @@ class Profile extends HTMLElement {
 				break;
 
 			case Attribute.timeInCompany:
-				this.timeInCompany = newValue ? Number(newValue) : undefined;
+				this.timeincompany = newValue ? Number(newValue) : undefined;
 				break;
 
 			case Attribute.experience:
@@ -75,20 +77,21 @@ class Profile extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
 
-			<link rel="stylesheet" href="./src/components/Profile/Profile.css" />
+          <section class= 'card'>
 
-          <section>
-
-          <img src="${this.image}"></img>
-          <h1>"${this.name}"</h1>
-          <p>"Id: ${this.uid}"<p>
-          <p>"${this.gender}"<p>
-          <p>"Area: ${this.area}"<p>
-          <p>"Time in company: ${this.timeInCompany}"<p>
-          <p>"Experience: ${this.experience}"<p>
+          <img class= 'card img' src="${this.image}"></img>
+          <h1>"${this.name}</h1><strong>
+          <p><strong>Id:</strong>${this.uid}<p>
+          <p>${this.gender}<p>
+          <p>Area: ${this.area}<p>
+          <p>Time in company: ${this.timeincompany}<p>
+          <p>Experience: ${this.experience}<p>
           </section>
           `;
 		}
+		const cssProfile = this.ownerDocument.createElement('style');
+		cssProfile.innerHTML = styles;
+		this.shadowRoot?.appendChild(cssProfile);
 	}
 }
 

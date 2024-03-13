@@ -9,7 +9,9 @@ class AppContainer extends HTMLElement {
 		super();
 		this.attachShadow({ mode: 'open' });
 
-		data.forEach((user) => {
+		const filteredData = data.filter((item) => item.id % 2 === 0);
+
+		filteredData.forEach((user) => {
 			const profileCard = this.ownerDocument.createElement('my-profile') as Profile;
 			profileCard.setAttribute(Attribute.name, user.name);
 			profileCard.setAttribute(Attribute.uid, String(user.id));
@@ -32,7 +34,6 @@ class AppContainer extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
-            <h1>PROFILESS</h1>
             `;
 
 			this.profiles.forEach((profile) => {
