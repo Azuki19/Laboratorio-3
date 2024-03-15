@@ -80,7 +80,7 @@ class Profile extends HTMLElement {
           <section class= 'card'>
 
           <img class= 'card img' src="${this.image}"></img>
-          <h1>"${this.name}</h1><strong>
+          <h1>${this.name}</h1><strong>
           <p><strong>Id:</strong>${this.uid}<p>
           <p>${this.gender}<p>
           <p>Area: ${this.area}<p>
